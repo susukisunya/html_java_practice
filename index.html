@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>javascriptを学ぶ</title>
-</head>
-<body>
-    <script src="main.js"></script>
-    <div class="edit_area_number">
-      0
-    </div>
-    <p>押すと数字が増えるよ</p>
-    <input type="button"value="+"onclick="plus1_number()">
-    <p>押すと数字をリセットする</p>
-    <input type="button"value="reset"onclick="be0_number()">
 
-    <p>時計</p>
-    <div class="clock"></div>
-    
-    <p>文字数をカウントするよ</p>
-    <form method="post"action="">
-      <input type="text"class="text_input_area">
-    </form>
-    <div class="wordcounter">文字数 : 0</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascriptを学ぶ</title>
+</head>
+
+<body>
+  <script src="main.js"></script>
+  <div class="edit_area_number">
+    0
+  </div>
+  <p>押すと数字が増えるよ</p>
+  <input type="button" value="+" onclick="add1_number()">
+  <p>押すと数字をリセットする</p>
+  <input type="button" value="reset" onclick="be0_number()">
+
+  <p>時計</p>
+  <div class="clock"></div>
+
+  <p>文字数をカウントするよ</p>
+  <form method="post" action="">
+    <input type="text" class="text_input_area">
+  </form>
+  <div class="wordcounter">文字数 : 0</div>
 </body>
+
 </html>

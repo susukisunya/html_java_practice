@@ -1,11 +1,11 @@
 "use strict";
 
 //クリックによって数値が変動するカウンターを作成する
-var plus1_number = () => {
+var add1_number = () => {
   const counternumber = document.getElementsByClassName("edit_area_number")[0];
   let intcounternumber = Number(counternumber.textContent);
   intcounternumber++;
-  console.log(intcounternumber);
+  //console.log(intcounternumber);
   counternumber.textContent = intcounternumber;
 }
 
@@ -34,11 +34,13 @@ setInterval("clock()", 100);
 //文字数カウンタを作成する
 var wordcount = () => {
   var inputtext = document.getElementsByClassName("text_input_area")[0];
-  inputtext.addEventListener("input", function () {
+  inputtext.addEventListener("input", () => { //入力し終わった後に処理したいときは第一引数をchange、入力されたときに処理したいときは第一引数をinput
     window.setTimeout(() => {
-      let textlength = inputtext.value.length;
-      document.getElementsByClassName("wordcounter")[0].textContent = "文字数 : " + textlength;
+      let inputtextlength = inputtext.value.length;
+      document.getElementsByClassName("wordcounter")[0].textContent = "文字数 : " + inputtextlength;
+      //↓文字数の変化を反映するまでの時間(ms)を変えたいときはここを変える
     }, 1000);
   });
 }
+
 setInterval("wordcount()", 1000);
