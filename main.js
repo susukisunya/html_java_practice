@@ -19,24 +19,26 @@ var clock = () => {
   //ドキュメントにあったものをそのまま転用
   var date = new Date();
   var clock = date.getFullYear()
-  + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
-  + '/' + ('0' + date.getDate()).slice(-2)
-  + ' ' + ('0' + date.getHours()).slice(-2)
-  + ':' + ('0' + date.getMinutes()).slice(-2)
-  + ':' + ('0' + date.getSeconds()).slice(-2)
-  + '(JST)';
+    + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+    + '/' + ('0' + date.getDate()).slice(-2)
+    + ' ' + ('0' + date.getHours()).slice(-2)
+    + ':' + ('0' + date.getMinutes()).slice(-2)
+    + ':' + ('0' + date.getSeconds()).slice(-2)
+    + '(JST)';
   //console.log(clock);
   document.getElementsByClassName("clock")[0].innerHTML = clock;
 }
 //0.1秒(100ミリ秒)ごとに表示内容を更新する
-setInterval("clock()",100);
+setInterval("clock()", 100);
 
 //文字数カウンタを作成する
 var wordcount = () => {
   var inputtext = document.getElementsByClassName("text_input_area")[0];
-  inputtext.addEventListener("input",function(){
-    let textlength = inputtext.value.length;
-    document.getElementsByClassName("wordcounter")[0].textContent = "文字数 : " + textlength;
+  inputtext.addEventListener("input", function () {
+    window.setTimeout(() => {
+      let textlength = inputtext.value.length;
+      document.getElementsByClassName("wordcounter")[0].textContent = "文字数 : " + textlength;
+    }, 1000);
   });
 }
-setInterval("wordcount()",1000);
+setInterval("wordcount()", 1000);
