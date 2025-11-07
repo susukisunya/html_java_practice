@@ -19,7 +19,7 @@ var clock = () => {
   //ドキュメントにあったものをそのまま転用
   var date = new Date();
   var clock = date.getFullYear()
-    + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+    + '/' + ('0' + (date.getMonth() + 1)).slice(-2) //getMonthは0~11で返すので、+1している
     + '/' + ('0' + date.getDate()).slice(-2)
     + ' ' + ('0' + date.getHours()).slice(-2)
     + ':' + ('0' + date.getMinutes()).slice(-2)
@@ -34,7 +34,8 @@ setInterval("clock()", 100);
 //文字数カウンタを作成する
 var wordcount = () => {
   var inputtext = document.getElementsByClassName("text_input_area")[0];
-  inputtext.addEventListener("input", () => { //入力し終わった後に処理したいときは第一引数をchange、入力されたときに処理したいときは第一引数をinput
+  inputtext.addEventListener("change", (event) => { //入力し終わった後に処理したいときは第一引数をchange、入力中に処理したいときは第一引数をinput
+    event.preventDefault();
     window.setTimeout(() => {
       let inputtextlength = inputtext.value.length;
       document.getElementsByClassName("wordcounter")[0].textContent = "文字数 : " + inputtextlength;
